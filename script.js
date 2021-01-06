@@ -37,10 +37,12 @@ function showData(data) {
 	}
 }
 
+
+// Get songs of previous or next page
 async function getMoreSongs(url) {
-	const res = await fetch(url);
+	const res = await fetch(`https://cors-anywhere.herokuapp.com/${url}`);
 	const data = await res.json();
-	
+
 	showData(data);
 }	
 
