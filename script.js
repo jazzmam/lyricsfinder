@@ -40,7 +40,8 @@ function showData(data) {
 
 // Get songs of previous or next page
 async function getMoreSongs(url) {
-	const res = await fetch(`https://cors-anywhere.herokuapp.com/${url}`);
+	//const res = await fetch(`https://cors-anywhere.herokuapp.com/${url}`);
+	const res = await fetch(`https://api.codetabs.com/v1/proxy?quest=${url}`);
 	const data = await res.json();
 
 	showData(data);
