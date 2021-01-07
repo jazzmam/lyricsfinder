@@ -3,10 +3,10 @@ const saerch = document.getElementById('saerch');
 const result = document.getElementById('result');
 const more = document.getElementById('more');
 
-const apiUrl = 'https://api.lyrics.ovh/suggest';
+const apiUrl = 'https://api.lyrics.ovh';
 
 async function searchSongs(term) {
-	const res = await fetch(`${apiUrl}/${term}`);
+	const res = await fetch(`${apiUrl}/suggest/${term}`);
 	const data = await res.json();
 
 	showData(data);
@@ -27,8 +27,6 @@ function showData(data) {
 		</ul>
 	`;
 
-	console.log(data.data);
-
 	if (data.prev || data.next) {
 		more.innerHTML = `
 			${data.prev ? `<button class="btn" onclick="getMoreSongs('${data.prev}')">Previous</button>` : ``}
@@ -39,7 +37,6 @@ function showData(data) {
 	}
 }
 
-
 // Get songs of previous or next page
 async function getMoreSongs(url) {
 	//const res = await fetch(`https://cors-anywhere.herokuapp.com/${url}`);
@@ -47,7 +44,19 @@ async function getMoreSongs(url) {
 	const data = await res.json();
 
 	showData(data);
-}	
+}
+
+// Get song lyrics
+async function getLyrics(artist, song) {
+	
+	console.log(`${apiUrl}/v1/${artist}/${song}`);
+	
+	const res = await fetch(`${apiUrl}/v1/${artist}/${song}`);
+	const data = await res.json();
+
+	console.log(data);
+	
+}
 
 // Event listeners
 
@@ -70,11 +79,10 @@ result.addEventListener('click', e => {
 	const clickedEl = e.target;
 
 	if (clickedEl.tagName === 'BUTTON') {
- 		const clickedArtist = clickedEl.getAttribute('data-artist');
-		 const clickedSongTitle = clickedEl.getAttribute('data-song-title');
-		 
-		 console.log(clickedArtist);
-		 console.log(clickedSongTitle);
-	}
+		const artist = clickedEl.getAttribute('data-artist');
+		const songTitle = clickedEl.getAttribute('data-song-title');
+	
+		getLyrics(artist, songTitle);
+	  }
 });
 
