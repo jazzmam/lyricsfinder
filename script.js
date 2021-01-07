@@ -48,14 +48,17 @@ async function getMoreSongs(url) {
 
 // Get song lyrics
 async function getLyrics(artist, song) {
-	
-	console.log(`${apiUrl}/v1/${artist}/${song}`);
-	
 	const res = await fetch(`${apiUrl}/v1/${artist}/${song}`);
 	const data = await res.json();
 
 	console.log(data);
 	
+	const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g, '<br>');
+
+	result.innerHTML = `<h2><strong>${artist}</strong> -
+	${song}
+	<span>${lyrics}</span>
+	</h2>`;
 }
 
 // Event listeners
