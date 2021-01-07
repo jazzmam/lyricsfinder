@@ -39,7 +39,6 @@ function showData(data) {
 
 // Get songs of previous or next page
 async function getMoreSongs(url) {
-	//const res = await fetch(`https://cors-anywhere.herokuapp.com/${url}`);
 	const res = await fetch(`https://api.codetabs.com/v1/proxy?quest=${url}`);
 	const data = await res.json();
 
@@ -50,15 +49,13 @@ async function getMoreSongs(url) {
 async function getLyrics(artist, song) {
 	const res = await fetch(`${apiUrl}/v1/${artist}/${song}`);
 	const data = await res.json();
-
-	console.log(data);
 	
 	const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g, '<br>');
 
-	result.innerHTML = `<h2><strong>${artist}</strong> -
-	${song}
-	<span>${lyrics}</span>
-	</h2>`;
+	result.innerHTML = `<h2><strong>${artist} - ${song} </strong></h2><br>
+	<span>${lyrics}</span>`;
+
+	more.innerHTML = ``;
 }
 
 // Event listeners
