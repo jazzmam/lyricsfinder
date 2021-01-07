@@ -27,6 +27,8 @@ function showData(data) {
 		</ul>
 	`;
 
+	console.log(data.data);
+
 	if (data.prev || data.next) {
 		more.innerHTML = `
 			${data.prev ? `<button class="btn" onclick="getMoreSongs('${data.prev}')">Previous</button>` : ``}
@@ -48,6 +50,8 @@ async function getMoreSongs(url) {
 }	
 
 // Event listeners
+
+// Enter search term
 form.addEventListener('submit', e => {
 	// not allow to submit a form to a file
 	e.preventDefault();
@@ -60,3 +64,17 @@ form.addEventListener('submit', e => {
 		searchSongs(searchWord);
 	}
 });
+
+// Show lyrics
+result.addEventListener('click', e => {
+	const clickedEl = e.target;
+
+	if (clickedEl.tagName === 'BUTTON') {
+ 		const clickedArtist = clickedEl.getAttribute('data-artist');
+		 const clickedSongTitle = clickedEl.getAttribute('data-song-title');
+		 
+		 console.log(clickedArtist);
+		 console.log(clickedSongTitle);
+	}
+});
+
