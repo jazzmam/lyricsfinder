@@ -15,6 +15,10 @@ async function searchSongs(term) {
 // Show songs / artists in DOM
 function showData(data) {
 
+	console.log("data in showData()", data);
+	//TESTING
+	//replace data.data by data... and pass NEXT or PREV values
+
 	result.innerHTML = `
 		<ul class="songs">
 			${data.data.map(song => `
