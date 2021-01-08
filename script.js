@@ -55,7 +55,7 @@ async function getLyrics(artist, song) {
 
 	result.innerHTML = `<h2><strong>${artist} - ${song} </strong></h2><br>
 	<span>${lyrics}</span>
-	<button id="home" class="btn home">Home page</button>
+	<button id="btn-home" class="btn btn-home">Home page</button>
 	`;
 
 	more.innerHTML = ``;
@@ -81,14 +81,14 @@ form.addEventListener('submit', e => {
 result.addEventListener('click', e => {
 	const clickedEl = e.target;
 
-	if (clickedEl.tagName === 'BUTTON' && clickedEl.id !== 'home') {
+	if (clickedEl.tagName === 'BUTTON' && clickedEl.id !== 'btn-home') {
 		const artist = clickedEl.getAttribute('data-artist');
 		const songTitle = clickedEl.getAttribute('data-song-title');
 	
 		getLyrics(artist, songTitle);
 	  }
 
-	  if (clickedEl.tagName === 'BUTTON' && clickedEl.id === 'home') {
+	  if (clickedEl.tagName === 'BUTTON' && clickedEl.id === 'btn-home') {
 		console.log("found");
 	  }
 });

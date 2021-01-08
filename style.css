@@ -113,6 +113,12 @@ button:focus, input:focus {
 	padding: 10px;
 }
 
+.btn-home {
+	display: block;
+	margin: 50px auto;
+	padding: 15px 25px;
+}
+
 ul.songs {
 	list-style-type: none;
 	padding: 0 0 10px;
