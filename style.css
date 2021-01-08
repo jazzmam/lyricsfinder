@@ -18,7 +18,7 @@ header {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	padding: 5em 0 5.5em;
+	padding: 4em 0 6em;
 	position: relative;
 }
 
@@ -38,6 +38,7 @@ header * {
 
 header h1 {
 	margin: 0 auto 30px;
+	font-size: 35px;
 }
 
 form {
@@ -68,7 +69,7 @@ form button {
 }
 
 .container {
-	margin: 30px auto;
+	margin: 20px auto;
 	max-width: 100%;
 	width: 500px;
 }
@@ -87,6 +88,7 @@ button {
 
 button:active {
 	transform: scale(0.95);
+	background-color: #a147a9;
 }
 
 button:focus, input:focus {
@@ -99,7 +101,13 @@ button:focus, input:focus {
 	border-radius: 10px;
 	color: #fff;
 	padding: 6px 10px;
+	margin: 0 10px;
 	letter-spacing: 1px;
+}
+
+.btn-bottom {
+	min-width: 80px;
+	padding: 10px;
 }
 
 ul.songs {

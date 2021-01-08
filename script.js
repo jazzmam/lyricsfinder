@@ -29,8 +29,8 @@ function showData(data) {
 
 	if (data.prev || data.next) {
 		more.innerHTML = `
-			${data.prev ? `<button class="btn" onclick="getMoreSongs('${data.prev}')">Previous</button>` : ``}
-			${data.next ? `<button class="btn" onclick="getMoreSongs('${data.next}')">Next</button>` : ``}
+			${data.prev ? `<button class="btn btn-bottom" onclick="getMoreSongs('${data.prev}')">Previous</button>` : ``}
+			${data.next ? `<button class="btn btn-bottom" onclick="getMoreSongs('${data.next}')">Next</button>` : ``}
 		`;
 	} else {
 		more.innerHTML = ``;
@@ -50,7 +50,10 @@ async function getLyrics(artist, song) {
 	const res = await fetch(`${apiUrl}/v1/${artist}/${song}`);
 	const data = await res.json();
 	
+	console.log(data.lyrics);
+
 	const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g, '<br>');
+
 
 	result.innerHTML = `<h2><strong>${artist} - ${song} </strong></h2><br>
 	<span>${lyrics}</span>`;
