@@ -40,18 +40,6 @@ header h1 {
 	margin: 0 auto 30px;
 }
 
-button {
-	cursor: pointer;
-}
-
-button:active {
-	transform: scale(0.95);
-}
-
-button:focus, input:focus {
-	outline: none;
-}
-
 form {
 	position: relative;
 	width: 500px;	
@@ -79,26 +67,6 @@ form button {
 	padding: 10px 30px;
 }
 
-.btn {
-	background-color: #20317f;
-	border: 0;
-	border-radius: 10px;
-	color: #fff;
-	padding: 6px 10px;
-}
-
-ul.songs {
-	list-style-type: none;
-	padding: 0 0 10px;
-}
-
-ul.songs li {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	margin: 10px 0;
-}
-
 .container {
 	margin: 30px auto;
 	max-width: 100%;
@@ -111,6 +79,39 @@ ul.songs li {
 
 .container p {
 	text-align: center;
+}
+
+button {
+	cursor: pointer;
+}
+
+button:active {
+	transform: scale(0.95);
+}
+
+button:focus, input:focus {
+	outline: none;
+}
+
+.btn {
+	background-color: #20317f;
+	border: 0;
+	border-radius: 10px;
+	color: #fff;
+	padding: 6px 10px;
+	letter-spacing: 1px;
+}
+
+ul.songs {
+	list-style-type: none;
+	padding: 0 0 10px;
+}
+
+ul.songs li {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 10px 0;
 }
 
 .centered {
