@@ -49,14 +49,14 @@ async function getMoreSongs(url) {
 async function getLyrics(artist, song) {
 	const res = await fetch(`${apiUrl}/v1/${artist}/${song}`);
 	const data = await res.json();
-	
-	console.log(data.lyrics);
 
 	const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g, '<br>');
 
 
 	result.innerHTML = `<h2><strong>${artist} - ${song} </strong></h2><br>
-	<span>${lyrics}</span>`;
+	<span>${lyrics}</span>
+	<button id="home" class="btn home">Home page</button>
+	`;
 
 	more.innerHTML = ``;
 }
@@ -81,11 +81,14 @@ form.addEventListener('submit', e => {
 result.addEventListener('click', e => {
 	const clickedEl = e.target;
 
-	if (clickedEl.tagName === 'BUTTON') {
+	if (clickedEl.tagName === 'BUTTON' && clickedEl.id !== 'home') {
 		const artist = clickedEl.getAttribute('data-artist');
 		const songTitle = clickedEl.getAttribute('data-song-title');
 	
 		getLyrics(artist, songTitle);
 	  }
-});
 
+	  if (clickedEl.tagName === 'BUTTON' && clickedEl.id === 'home') {
+		console.log("found");
+	  }
+});
