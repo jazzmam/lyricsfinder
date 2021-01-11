@@ -7,31 +7,27 @@ const apiUrl = 'https://api.lyrics.ovh';
 
 const currentList = {
 	list: [],
-	set current(a) {
-	  this.list.push(a);
+	set current(currentPageSongs) {
+	  this.list = currentPageSongs;
 	},
 	get current() {
 		return this.list;
 	  }
   };
-  
-
 
 async function searchSongs(term) {
 	const res = await fetch(`${apiUrl}/suggest/${term}`);
 	const data = await res.json();
 
 	const currentUrl = `${apiUrl}/suggest/${term}`;
-	showData(data, currentUrl);
+	const a = data.data;
+	showData(data);
 }
 
 // Show songs / artists in DOM
 function showData(data) {
 
-	console.log("data", data);
-
-	// TEST HERE
-	currentList.current = data.data;
+	currentList.current = data;
 
 	result.innerHTML = `
 		<ul class="songs">
@@ -107,8 +103,7 @@ result.addEventListener('click', e => {
 	  }
 
 	  if (clickedEl.tagName === 'BUTTON' && clickedEl.id === 'btn-home') {
-		console.log("found");
-		// TEST HERE
-		console.log("currentList.log", currentList.current);
+		showData(currentList.current);
+
 	  }
 });
