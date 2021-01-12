@@ -69,7 +69,7 @@ async function getLyrics(artist, song) {
 
 	result.innerHTML = `<h2><strong>${artist} - ${song} </strong></h2><br>
 	<span>${lyrics}</span>
-	<button id="btn-home" class="btn btn-home">Home page</button>
+	<button id="btn-home" class="btn btn-home">Back</button>
 	`;
 
 	more.innerHTML = ``;
